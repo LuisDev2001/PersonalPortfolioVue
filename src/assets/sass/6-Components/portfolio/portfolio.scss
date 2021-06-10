@@ -9,6 +9,7 @@
     }
   }
   .item {
+    overflow: hidden;
     &-image {
       img {
         height: 170px;

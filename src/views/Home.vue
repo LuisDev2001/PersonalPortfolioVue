@@ -5,7 +5,6 @@
 </template>
 
 <script>
-// @ is an alias to /src
 import PxBanner from "@/components/Home/PxBanner";
 
 export default {
