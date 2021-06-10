@@ -1,9 +1,18 @@
 <template>
-  <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </div>
+  <PxHeader />
   <router-view />
 </template>
 
-<style lang="scss"></style>
+<script>
+import PxHeader from "@/components/PxHeader";
+
+export default {
+  name: "App",
+  components: {
+    PxHeader,
+  },
+};
+</script>
+<style lang="scss">
+@import "~@/assets/sass/main.scss";
+</style>
