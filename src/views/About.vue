@@ -1,5 +1,16 @@
 <template>
   <div class="about">
-    <h1>This is an about page</h1>
+    <PxInfoAbout />
   </div>
 </template>
+
+<script>
+import PxInfoAbout from "@/components/About/PxInfoAbout";
+
+export default {
+  name: "About",
+  components: {
+    PxInfoAbout,
+  },
+};
+</script>
