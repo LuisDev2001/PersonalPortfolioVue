@@ -1,15 +1,17 @@
 <template>
-  <div class="home"></div>
+  <div class="home">
+    <PxBanner />
+  </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import HelloWorld from "@/components/HelloWorld.vue";
+import PxBanner from "@/components/Home/PxBanner";
 
 export default {
   name: "Home",
   components: {
-    HelloWorld,
+    PxBanner,
   },
 };
 </script>

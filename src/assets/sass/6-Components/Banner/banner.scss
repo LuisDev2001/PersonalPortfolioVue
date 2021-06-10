@@ -1,6 +1,6 @@
 .banner {
   padding: 0;
-  height: 100vh;
+  height: calc(100vh - 56px);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -71,6 +71,7 @@
 //Desktop
 @media screen and (min-width: 992px) {
   .banner {
+    height: 100vh;
     &-text {
       p {
         font-size: 75px;

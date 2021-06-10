@@ -70,5 +70,5 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "~@/assets/sass/6-Components/header/header.scss";
+@import "~@/assets/sass/6-Components/Header/header.scss";
 </style>
