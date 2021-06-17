@@ -1,4 +1,5 @@
 .contact-me {
+  padding: 80px 15px;
   &-wrapper {
     padding: 0;
   }
@@ -6,20 +7,15 @@
 //Tablet
 @media screen and (min-width: 768px) {
   .contact-me {
-    padding: 0;
     max-width: 960px;
     margin: 0 auto;
     &-wrapper {
       display: flex;
       align-items: flex-start;
       justify-content: space-between;
-      .contact,
-      .footer {
+      .contact {
         width: 50%;
         padding: 0 15px;
-      }
-      .footer {
-        padding: 0 15px 0 48px;
       }
     }
   }

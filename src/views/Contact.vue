@@ -1,8 +1,14 @@
-<template> </template>
+<template>
+  <PxContact />
+</template>
 
 <script>
+import PxContact from "@/components/Contact/PxContact";
 export default {
   name: "Contact",
+  components: {
+    PxContact,
+  },
 };
 </script>
 
