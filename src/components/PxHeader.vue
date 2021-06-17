@@ -33,6 +33,7 @@
             class="menu-link"
             :to="menu.to"
             v-text="menu.text"
+            @click="handleDissapearMenu"
           ></router-link>
         </li>
       </ul>
@@ -84,6 +85,7 @@ export default {
 
     const openMenuState = ref(false);
     let fixedHeader = ref(false);
+    const body = ref(null);
 
     onMounted(() => {
       document.addEventListener("scroll", () => {
@@ -95,11 +97,16 @@ export default {
     const handleOpenMenuMobile = () =>
       (openMenuState.value = !openMenuState.value);
 
+    const handleDissapearMenu = () => {
+      openMenuState.value = !openMenuState.value;
+    };
+
     return {
       menuImtesState,
       fixedHeader,
       handleOpenMenuMobile,
       openMenuState,
+      handleDissapearMenu,
     };
   },
 };

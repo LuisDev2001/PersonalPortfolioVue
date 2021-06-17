@@ -84,18 +84,13 @@
       height: 100%;
       transition: all 0.4s ease-out;
       outline: none;
-      &:hover {
-        color: var(--green-two);
-      }
-      &.is-active {
+      &:hover,
+      &.router-link-active {
         color: var(--green-two);
       }
     }
   }
   &.fixed {
-    // position: fixed;
-    // top: 0;
-    // left: 0;
     .menu {
       &-link {
         &.is-active {
@@ -131,14 +126,16 @@
         flex-direction: row;
         position: unset;
         background: transparent;
-        transform: unset;
         border-radius: 0;
         width: auto;
         height: auto;
-        top: unset;
-        right: unset;
         .menu-item {
           display: block;
+        }
+        &.is-active {
+          top: unset;
+          right: unset;
+          transform: unset;
         }
       }
       &-item {
