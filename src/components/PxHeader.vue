@@ -1,10 +1,29 @@
 <template>
-  <header class="header" id="js_header">
-    <div class="burger-button" id="js_burger-button">
-      <font-awesome-icon icon="bars" />
+  <header
+    :class="{
+      header: true,
+      fixed: fixedHeader,
+    }"
+  >
+    <div
+      :class="{ 'burger-button': true, 'is-active': openMenuState }"
+      @click="handleOpenMenuMobile()"
+    >
+      <font-awesome-icon v-if="!openMenuState" icon="bars" />
+      <font-awesome-icon v-else icon="times" />
     </div>
-    <nav class="menu">
-      <ul class="menu-list" id="js_menu">
+    <nav
+      :class="{
+        menu: true,
+        'is-active': openMenuState,
+      }"
+    >
+      <ul
+        :class="{
+          'menu-effect-circle': true,
+          'is-active': openMenuState,
+        }"
+      >
         <li
           class="menu-item"
           v-for="(menu, index) in menuImtesState"
@@ -23,10 +42,11 @@
 
 <script>
 import { library } from "@fortawesome/fontawesome-svg-core";
-import { faBars } from "@fortawesome/free-solid-svg-icons";
+import { faBars, faTimes } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
-import { reactive, ref, toRefs } from "vue";
-library.add(faBars);
+import { reactive, ref, toRefs, onMounted } from "vue";
+
+library.add(faBars, faTimes);
 
 export default {
   name: "PxHeader",
@@ -62,8 +82,24 @@ export default {
       },
     ]);
 
+    const openMenuState = ref(false);
+    let fixedHeader = ref(false);
+
+    onMounted(() => {
+      document.addEventListener("scroll", () => {
+        let y = window.scrollY;
+        y > 56 ? (fixedHeader.value = true) : (fixedHeader.value = false);
+      });
+    });
+
+    const handleOpenMenuMobile = () =>
+      (openMenuState.value = !openMenuState.value);
+
     return {
       menuImtesState,
+      fixedHeader,
+      handleOpenMenuMobile,
+      openMenuState,
     };
   },
 };
