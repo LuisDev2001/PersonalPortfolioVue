@@ -21,15 +21,18 @@
       </p>
       <section class="aboutMe-information-buttons">
         <div>
-          <a href="#" class="btn btn-primary"> Contratame </a>
+          <router-link to="/contact-me" class="btn btn-primary">
+            Contratame
+          </router-link>
         </div>
         <div>
           <a
-            href="https://www.linkedin.com/in/luis-aldair-quispe-rios-8b6096161/"
+            href="/assets/docs/CV.pdf"
             target="_blank"
             class="btn btn-secondary"
+            download
           >
-            Ver CV
+            Descargar CV
           </a>
         </div>
       </section>
