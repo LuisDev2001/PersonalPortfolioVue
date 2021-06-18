@@ -1,5 +1,5 @@
 <template>
-  <section class="contact-me" id="contact">
+  <section class="contact-me">
     <h2 class="generic-title">Ponerse en <b>Contacto</b></h2>
 
     <section class="contact-me-wrapper">

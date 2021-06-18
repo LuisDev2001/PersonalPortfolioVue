@@ -1,5 +1,5 @@
 <template>
-  <section class="portafolio" id="portfolio">
+  <section class="portafolio">
     <h2 class="generic-title">Portafolio <b>Destacado</b></h2>
     <section class="main-carousel portafolio-wrapper grid">
       <div class="item" v-for="(card, index) in cardState" :key="index">

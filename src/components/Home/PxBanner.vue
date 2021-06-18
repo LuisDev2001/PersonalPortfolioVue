@@ -1,5 +1,5 @@
 <template>
-  <section class="banner" id="home">
+  <section class="banner">
     <div class="banner-video">
       <video autoplay loop muted>
         <source
