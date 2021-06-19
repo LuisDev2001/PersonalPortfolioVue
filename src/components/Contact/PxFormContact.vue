@@ -146,5 +146,5 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "~@/assets/sass/6-Components/Contact/form.scss";
+@import "~@/assets/sass/Components/Contact/_form.scss";
 </style>

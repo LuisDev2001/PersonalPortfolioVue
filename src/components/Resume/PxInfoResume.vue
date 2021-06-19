@@ -134,5 +134,5 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "~@/assets/sass/6-Components/Resume/resume.scss";
+@import "~@/assets/sass/Components/Resume/_resume.scss";
 </style>

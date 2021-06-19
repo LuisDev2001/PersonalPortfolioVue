@@ -28,5 +28,5 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "~@/assets/sass/6-Components/Contact/globalContact.scss";
+@import "~@/assets/sass/Components/Contact/_globalContact.scss";
 </style>

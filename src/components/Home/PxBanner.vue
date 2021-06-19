@@ -31,5 +31,5 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "~@/assets/sass/6-Components/Banner/banner.scss";
+@import "~@/assets/sass/Components/Banner/_banner.scss";
 </style>

@@ -149,5 +149,5 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "~@/assets/sass/6-Components/Portfolio/portfolio.scss";
+@import "~@/assets/sass/Components/Portfolio/_portfolio.scss";
 </style>

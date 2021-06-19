@@ -26,5 +26,5 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "~@/assets/sass/6-Components/Footer/footer.scss";
+@import "~@/assets/sass/Components/Footer/_footer.scss";
 </style>
