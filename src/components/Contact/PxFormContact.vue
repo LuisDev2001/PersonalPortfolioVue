@@ -98,6 +98,7 @@ export default {
           titleModal.value = "Gracias!";
           messageModal.value =
             "En breve te escribiré, muchas gracias por visitar mi portafolio";
+          document.body.classList.add("hide-scroll");
           formDataContact.value.name = "";
           formDataContact.value.email = "";
           formDataContact.value.message = "";
@@ -106,12 +107,14 @@ export default {
           isOpenModal.value = true;
           titleModal.value = "Hey!";
           messageModal.value = "Completa los campos del formulario";
+          document.body.classList.add("hide-scroll");
         }
       } catch (error) {
         isOpenModal.value = true;
         titleModal.value = "Ops!";
         messageModal.value =
           "El servicio de enviar correo esta caído, estoy solucionando este issue.";
+        document.body.classList.add("hide-scroll");
       }
     };
 
@@ -124,6 +127,7 @@ export default {
       ) {
         isCloseModal.value = !isCloseModal.value;
         isOpenModal.value = !isOpenModal.value;
+        document.body.classList.remove("hide-scroll");
       }
     };
 
