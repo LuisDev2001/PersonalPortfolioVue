@@ -109,7 +109,7 @@ export default {
       },
       {
         itemTitle: "Upload files challenge app",
-        src: "/assets/img/UploadFilesChallenge.PNG",
+        src: "/assets/img/UploadFilesChallenge.png",
         labels: {
           madeLabelHtml: "HTML",
           madeLabelCss: "CSS",
