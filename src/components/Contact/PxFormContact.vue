@@ -10,35 +10,35 @@
       <div>
         <input
           type="text"
+          :class="{ error: false }"
           placeholder="Tu nombre"
           v-model="formDataContact.name"
-          required
         />
       </div>
       <div>
         <input
           type="email"
+          :class="{ error: false }"
           placeholder="Tu correo"
           v-model="formDataContact.email"
-          required
         />
       </div>
       <div>
         <input
           type="tel"
+          :class="{ error: false }"
           placeholder="Tu numero de celular"
           v-model="formDataContact.phone"
-          required
           maxlength="9"
         />
       </div>
       <div>
         <textarea
+          :class="{ error: false }"
           cols="30"
           rows="10"
           placeholder="Escribe un mensaje"
           v-model="formDataContact.message"
-          required
         ></textarea>
       </div>
       <div>
@@ -49,10 +49,12 @@
     </form>
 
     <PxModal
-      title="Gracias!"
-      message="En breve te escribiré, muchas gracias por visitar mi portafolio"
+      :title="titleModal"
+      :message="messageModal"
       textButton="OK"
-      :isOpenModal="isOpenModalThnx"
+      :isOpenModal="isOpenModal"
+      :isCloseModal="isCloseModal"
+      :closeModal="handleCloseModal"
     />
   </section>
 </template>
@@ -60,7 +62,8 @@
 <script>
 import PxModal from "@/components/PxModal";
 
-import { ref } from "vue";
+import { reactive, ref } from "vue";
+
 export default {
   name: "PxFormContact",
   components: {
@@ -73,23 +76,54 @@ export default {
       message: "",
       phone: "",
     });
-    const isOpenModalThnx = ref(false);
+
+    const isOpenModal = ref(false);
+    const isCloseModal = ref(false);
     const jsFormContact = ref(null);
+    const messageModal = ref("");
+    const titleModal = ref("");
+
     const handleSubmitForm = async () => {
-      const API = "https://formspree.io/f/mjvjrpjz";
-      const response = await fetch(API, {
-        method: "POST",
-        body: JSON.stringify(formDataContact.value),
-        headers: {
-          "Content-type": "application/json; charset=UTF-8",
-        },
-      });
-      if (response.ok) {
-        isOpenModalThnx.value = true;
-        formDataContact.value.name = "";
-        formDataContact.value.email = "";
-        formDataContact.value.message = "";
-        formDataContact.value.phone = "";
+      try {
+        const API = "https://formspree.io/f/mjvjrpjz";
+        const response = await fetch(API, {
+          method: "POST",
+          body: JSON.stringify(formDataContact.value),
+          headers: {
+            "Content-type": "application/json; charset=UTF-8",
+          },
+        });
+        if (response.ok) {
+          isOpenModal.value = true;
+          titleModal.value = "Gracias!";
+          messageModal.value =
+            "En breve te escribiré, muchas gracias por visitar mi portafolio";
+          formDataContact.value.name = "";
+          formDataContact.value.email = "";
+          formDataContact.value.message = "";
+          formDataContact.value.phone = "";
+        } else if (!response.ok && response.status == 400) {
+          isOpenModal.value = true;
+          titleModal.value = "Hey!";
+          messageModal.value = "Completa los campos del formulario";
+        }
+      } catch (error) {
+        isOpenModal.value = true;
+        titleModal.value = "Ops!";
+        messageModal.value =
+          "El servicio de enviar correo esta caído, estoy solucionando este issue.";
+      }
+    };
+
+    const handleCloseModal = () => {
+      if (
+        formDataContact.value.name == "" ||
+        formDataContact.value.email == "" ||
+        formDataContact.value.message == "" ||
+        formDataContact.value.phone == ""
+      ) {
+        isCloseModal.value = !isCloseModal.value;
+        isOpenModal.value = !isOpenModal.value;
       }
     };
 
@@ -97,7 +131,11 @@ export default {
       handleSubmitForm,
       jsFormContact,
       formDataContact,
-      isOpenModalThnx,
+      isOpenModal,
+      messageModal,
+      titleModal,
+      isCloseModal,
+      handleCloseModal,
     };
   },
 };

@@ -24,6 +24,12 @@
         &:active {
           border: 1px solid var(--green-two);
         }
+        &.error {
+          &:focus,
+          &:active {
+            border: 1px solid #f36565;
+          }
+        }
       }
       textarea {
         max-width: 100%;
